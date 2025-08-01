@@ -123,23 +123,11 @@ header .container { display: flex; justify-content: space-between; align-items: 
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: var(--bg-alternate-color); /* Latar Abu-abu Muda */
+    background-color: var(--bg-alternate-color);
     border-bottom: 1px solid var(--border-color);
 }
 .hero h1 { font-size: 3.5rem; margin-top: 0.5rem; margin-bottom: 1rem; }
 .hero .subtitle { font-size: 1.2rem; color: var(--accent-color); }
-.btn {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.8rem 2rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s;
-    margin-top: 1.5rem;
-}
-.btn:hover { transform: translateY(-3px); }
 
 /* ABOUT SECTION */
 .about-content { display: flex; align-items: center; gap: 3rem; }
@@ -274,6 +262,12 @@ footer { background-color: var(--primary-color); color: var(--light-color); text
 
 /* RESPONSIVENESS */
 @media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
     .nav-links {
         display: none;
         flex-direction: column;
@@ -297,7 +291,11 @@ footer { background-color: var(--primary-color); color: var(--light-color); text
     }
     .about-content {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
+        align-items: center;
+    }
+    .about-content p {
+        text-align: justify;
     }
     .skills-grid, .gallery-grid, .timeline {
         grid-template-columns: 1fr;

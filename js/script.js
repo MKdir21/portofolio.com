@@ -1,5 +1,3 @@
-// KODE FINAL UNTUK script.js
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // --- FUNGSI UNTUK MENU HAMBURGER ---
@@ -19,14 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let current = '';
         sections.forEach( section => {
             const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 65) { // Sedikit offset agar lebih akurat
+            if (pageYOffset >= sectionTop - 70) { // Offset disesuaikan dengan tinggi header
                 current = section.getAttribute('id');
             }
         });
 
         navLi.forEach( a => {
             a.classList.remove('active');
-            if (a.getAttribute('href') == '#' + current) {
+            // Cek untuk dropdown juga
+            if (a.getAttribute('href') === '#' + current || (a.classList.contains('dropbtn') && current === 'kontak')) {
                 a.classList.add('active');
             }
         });
@@ -36,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Jika elemen terlihat, tambahkan class is-visible
                 entry.target.classList.add('is-visible');
             }
         });
+    }, {
+        threshold: 0.1 // Elemen dianggap terlihat saat 10% masuk layar
     });
 
     // Pilih semua elemen yang ingin dianimasikan
